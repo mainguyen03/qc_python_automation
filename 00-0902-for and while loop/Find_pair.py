@@ -12,7 +12,7 @@ print (result)
 
 
 # Cach 2: Nhưng khi print bị duplicate, chưa lọc được tuple có giá trị ngược nhau bị trùng ví dụ (1,8) và (8,1)---------------------------------
-#  my_list = sorted([1,2,3,6,4,5,8,9,0])
+# my_list = sorted([1,2,3,6,4,5,8,9,0])
 # print (my_list)
 # sum = int(input('Input sum of 2 number: '))
 # other_list = []

@@ -9,7 +9,7 @@ for dict in my_dict2:
 result = sorted(result)
 final_result = set(result)
 
-print(f'Unique Value Dictionary is: {final_result}')
+print('Unique Value Dictionary is: ', final_result)
 
 # cach 2:----------------------------------------------------------------------------------------------------------------
 # my_dict1 = [dict(Trang=38, Thu=38, Ngoc=27, Thanh=26, Yen=25, Hang=22, Thuy=22)]
