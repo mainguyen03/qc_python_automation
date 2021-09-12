@@ -44,7 +44,7 @@ final_str = ' '.join(reversed(new_string.split(" ")))
 print(final_str)
 
 
-# Cách 2: -----------------------------------------------------------
+# Cách 3: -----------------------------------------------------------
 my_string = "tHE fOX iS cOMING fOR tHE cHICKEN"
 
 def string_function(my_string):
@@ -65,7 +65,7 @@ def string_function(my_string):
 print(string_function(my_string))
 
 
-# Cách 3: ------------------------------------------------------------
+# Cách 4: ------------------------------------------------------------
 my_string = "tHE fOX iS cOMING fOR tHE cHICKEN"
 
 def string_function(my_string):
