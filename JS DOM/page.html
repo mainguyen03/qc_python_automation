@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSDOM Document</title>
+	<style>
+.paragraph{
+    display: inline-block;
+    width: 1040px;
+    margin: 0 auto;
+    font-size: 25px;
+    line-height: 25px;
+    color: rgb(20, 19, 19);
+    font-family:'Times New Roman', Times, serif;
+    margin-bottom: 15px;
+    -webkit-font-smoothing: subpixel-antialiased;
+    padding-top: 50px;
+    margin-left: 500px;
+}
+.button{
+    width: auto;
+    margin: 0 auto;
+}
+.button{
+    background: #a70e1a;
+    height: 40px;
+    position: relative;
+    font-size: medium;
+    font-style: normal;
+    color: antiquewhite;
+    border-radius: 10px;
+    margin-right: 20px;
+    margin-top: 30px;
+}
+</style>
+</head>
+<body>
+    <div class="paragraph" id="p1">
+        Đầu Đông nắng phớt nhẹ nhàng
+        <br/>
+        Xinh xinh cánh trắng những nàng Họa Mi 
+        <br/>
+    </div>
+    <div class=" paragraph" id="p2">
+        Paragraph 2
+    </div>
+    <div class=" paragraph" id="p3">
+        Paragraph 3
+    </div>
+    <div class="bt">
+        <button id = "bt1" class="button" onclick="changeColor()" >Change Color</button>
+        <button id = "bt2" class="button" onclick="changeBgColor()" >Change Background Color</button>
+        <button id = "bt3" class="button" onclick="copyContent('p1', 'p2')" >Copy Content</button>
+        <button id = "bt4" class="button" onclick="changeFontSize()" >Change Font size</button>
+        <button id = "bt5" class="button" onclick="increaseFontSize()" >Increase Font Size</button>
+        <button id = "bt6" class="button" onclick="decreaseFontSize()" >Decrease Font Size</button>
+    </div>
+</body>
+</html>
+<script>
+
+function changeColor(){
+    document.getElementById("p1").style.color="blue";
+    document.getElementById("p2").style.color="yellow";
+    document.getElementById("p3").style.color="red";
+}
+function changeBgColor(color){
+	color = "pink";
+    document.body.style.backgroundColor = color;
+}
+function copyContent(p1, p2){
+	var par2 = document.getElementById(p2).innerText;
+	document.getElementById(p1).innerHTML = par2;
+}
+function changeFontSize(x){
+	x = "20px";
+    document.getElementById("p1").style.fontSize=x;
+    document.getElementById("p2").style.fontSize=x;
+    document.getElementById("p3").style.fontSize=x;
+}
+function increaseFontSize(para){
+	var para = "p1"
+    var el = document.getElementById(para);
+    var style = window.getComputedStyle(el, null).getPropertyValue('font-size');
+    var fontSize = parseInt(style); 
+    if(fontSize<30) {
+        el.style.fontSize = (fontSize + 1) + 'px';
+    }
+}
+function decreaseFontSize(para){
+	var para = "p1"
+    var el = document.getElementById(para);
+    var style = window.getComputedStyle(el, null).getPropertyValue('font-size');
+    var fontSize = parseInt(style); 
+    if(fontSize>10) {
+        el.style.fontSize = (fontSize - 1) + 'px';
+    }
+}
+</script>

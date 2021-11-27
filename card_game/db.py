@@ -5,7 +5,7 @@ import sys
 config = {
     'host': 'localhost',
     'user': 'root',
-    'password': '123456',
+    'password': '',
     'database': 'game_log',
     'cursorclass': cursors.DictCursor
 }
@@ -13,9 +13,9 @@ config = {
 try:
     cnx = connect(**config)
     cur = cnx.cursor()
-except Error as e:
+except Error as ex:
     print('Lỗi kết nối đến MySQL Server, không thể khởi chạy ứng dụng')
-    print(e.args[1])
+    print(ex.args[1])
     sys.exit()
 
 
@@ -37,15 +37,15 @@ def log(winner, players):
 def get_last_game():
     sql = '''
     SELECT *
-    FROM games AS g
-    ORDER BY g.play_at DESC
+    FROM games AS ga
+    ORDER BY ga.play_at DESC
     '''
 
     cur.execute(sql)
     game = cur.fetchone()
 
     if not game:
-        raise Exception('Không có lịch sử game\nChơi vài game vui vẻ đi 😉\n')
+        raise Exception('Không có lịch sử game\n')
 
     sql = f'''
     SELECT *
@@ -73,7 +73,7 @@ def history():
     records = cur.fetchall()
 
     if not records:
-        raise Exception('Không có lịch sử game\nChơi vài game vui vẻ đi 😉\n')
+        raise Exception('Không có lịch sử game\n')
 
     total_game = sum([r['game_won'] for r in records])
     return total_game, records

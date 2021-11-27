@@ -7,8 +7,8 @@ from player import Player
 
 
 class Game:
-    min_players = 2
-    max_players = 12
+    min_players = 3
+    max_players = 6
     cards_per_player = 3
 
     def __init__(self):
@@ -43,7 +43,7 @@ class Game:
     def setup(self):
         self.cls()
         print('Welcome!!!')
-        print('Chào mừng đến với game đánh bài 3 cây (vui thôi nha)')
+        print('Chào mừng đến với game đánh bài 3 cây')
         print('Có bao nhiêu người muốn chơi?')
 
         while True:
@@ -64,7 +64,6 @@ class Game:
             except error.Error as e:
                 print(e.message)
             except ValueError as e:
-                print('Có muốn chơi không zị?')
                 print('Nhập một số đi :)')
 
     def menu(self):
@@ -76,8 +75,7 @@ class Game:
         print('4. Chia bài')
         print('5. Lật bài')
         print('6. Xem lại game vừa chơi')
-        print('7. Xem lịch sử chơi hôm nay')
-        print('8. Công an tới, tốc biến :)')
+        print('7. Xem lịch sử chơi')
 
     def list_players(self):
         print('{:2} {}'.format('ID', 'Tên'))
@@ -111,7 +109,7 @@ class Game:
             try:
                 player = self.players[id - 1]
                 self.players.remove(player)
-                print('Một thanh niên đã nhẵn túi :)')
+                print('Loại người chơi')
             except IndexError as e:
                 raise error.PlayerDoesNotExistsError()
 
@@ -134,7 +132,7 @@ class Game:
             self.is_flipped = False
             self.is_playing = True
 
-            print('Bài đã chia :)\nXuống tiền đi nào')
+            print('Chia bài')
 
     def flip_cards(self):
         if not self.is_dealt:
@@ -176,7 +174,7 @@ class Game:
                     f'Bộ bài: {p["cards"]} Điểm: {p["point"]} Lá bài lớn nhất: {p["biggest_card"]}')
                 print()
 
-            print(f'🏆 Tay chơi chiến thắng: {last_game["winner"]} :)')
+            print(f'Người chiến thắng: {last_game["winner"]} :)')
 
     def history(self):
         if self.is_playing:
